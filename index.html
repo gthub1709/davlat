@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магический шар предсказаний</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .magic-ball {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 65% 15%, white 1px, #000 2px, #000 100%);
+            border-radius: 50%;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .magic-ball:hover {
+            transform: scale(1.1);
+        }
+
+        #question {
+            padding: 10px;
+            margin: 20px;
+            width: 300px;
+            border-radius: 5px;
+        }
+
+        #answer {
+            margin: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Магический шар предсказаний</h1>
+    <input type="text" id="question" placeholder="Задайте свой вопрос...">
+    <div class="magic-ball" onclick="askQuestion()"></div>
+    <div id="answer"></div>
+
+    <script>
+        async function askQuestion() {
+            const question = document.getElementById('question').value;
+            if (!question) {
+                alert('Пожалуйста, задайте вопрос!');
+                return;
+            }
+
+            try {
+                const response = await fetch('https://www.eightballapi.com/api');
+                const data = await response.json();
+                document.getElementById('answer').textContent = data.reading;
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('answer').textContent = 'Произошла ошибка при получении ответа';
+            }
+        }
+    </script>
+
+// ... existing code ...
+<script>
+    const answers = [
+        "Бесспорно",
+        "Предрешено",
+        "Никаких сомнений",
+        "Определённо да",
+        "Можешь быть уверен в этом",
+        "Мне кажется — «да»",
+        "Вероятнее всего",
+        "Хорошие перспективы",
+        "Знаки говорят — «да»",
+        "Да",
+        "Пока не ясно, попробуй снова",
+        "Спроси позже",
+        "Лучше не рассказывать",
+        "Сейчас нельзя предсказать",
+        "Сконцентрируйся и спроси опять",
+        "Даже не думай",
+        "Мой ответ — «нет»",
+        "По моим данным — «нет»",
+        "Перспективы не очень хорошие",
+        "Весьма сомнительно"
+    ];
+
+    async function askQuestion() {
+        const question = document.getElementById('question').value;
+        if (!question) {
+            alert('Пожалуйста, задайте вопрос!');
+            return;
+        }
+
+        // Добавим эффект "размышления"
+        document.getElementById('answer').textContent = 'Размышляю...';
+        
+        // Имитация задержки ответа
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Получаем случайный ответ из массива
+        const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+        document.getElementById('answer').textContent = randomAnswer;
+    }
+</script>
+// ... existing code ...
+    <script>
+        async function askQuestion() {
+            const question = document.getElementById('question').value;
+            if (!question) {
+                alert('Пожалуйста, задайте вопрос!');
+                return;
+            }
+
+            try {
+                const response = await fetch('https://www.eightballapi.com/api', {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Origin': 'http://127.0.0.1:5500'
+                    }
+                });
+                const data = await response.json();
+                document.getElementById('answer').textContent = data.reading;
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('answer').textContent = 'Произошла ошибка при получении ответа';
+            }
+        }
+    </script>
+    // ... existing code ...
+    <script>
+        async function askQuestion() {
+            const question = document.getElementById('question').value;
+            if (!question) {
+                alert('Пожалуйста, задайте вопрос!');
+                return;
+            }
+
+            try {
+                const response = await fetch('https://www.eightballapi.com/api', {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Origin': 'http://127.0.0.1:5500'
+                    }
+                });
+                const data = await response.json();
+                document.getElementById('answer').textContent = data.reading;
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('answer').textContent = 'Произошла ошибка при получении ответа';
+            }
+        }
+    </script>
+    // ... existing code ...
+    <script>
+        const answers = [
+            "Бесспорно",
+            "Предрешено",
+            "Никаких сомнений",
+            "Определённо да",
+            "Можешь быть уверен в этом",
+            "Мне кажется — «да»",
+            "Вероятнее всего",
+            "Хорошие перспективы",
+            "Знаки говорят — «да»",
+            "Да",
+            "Пока не ясно, попробуй снова",
+            "Спроси позже",
+            "Лучше не рассказывать",
+            "Сейчас нельзя предсказать",
+            "Сконцентрируйся и спроси опять",
+            "Даже не думай",
+            "Мой ответ — «нет»",
+            "По моим данным — «нет»",
+            "Перспективы не очень хорошие",
+            "Весьма сомнительно"
+        ];
+    
+        async function askQuestion() {
+            const question = document.getElementById('question').value;
+            if (!question) {
+                alert('Пожалуйста, задайте вопрос!');
+                return;
+            }
+    
+            // Добавим эффект "размышления"
+            document.getElementById('answer').textContent = 'Размышляю...';
+            
+            // Имитация задержки ответа
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Получаем случайный ответ из массива
+            const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+            document.getElementById('answer').textContent = randomAnswer;
+        }
+    </script>
+</body>
+</html>
